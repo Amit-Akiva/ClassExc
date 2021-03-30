@@ -27,7 +27,7 @@ def add_friend():
 
 
 def change_password():
-    r = requests.put(url=target + 'users/change_password', json=connexion.request.json)
+    r = requests.put(url=target + '/users/change_password', json=connexion.request.json)
     return r.json()
 
 
@@ -52,7 +52,7 @@ def song_downvote():
 
 
 def ranked_songs():
-    payload = {'rank=': connexion.request.args['rank'], 'op': connexion.request.args['op']}
+    payload = {'rank': connexion.request.args['rank'], 'op': connexion.request.args['op']}
     r = requests.get(url=target + '/songs/ranked_songs', params=payload)
     return r.json()
 
