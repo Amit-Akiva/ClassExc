@@ -20,6 +20,18 @@ def get_user():
     print(connexion.request.args['user_name'])
     return r.json()
 
+def get_song():
+    r = requests.get(url=target + '/songs/get_song', params={'song_title': connexion.request.args['song_title']})
+    return r.json()
+
+def get_playlist():
+    r = requests.get(url=target + '/users/get_playlist', params={'user_name': connexion.request.args['user_name'],
+                                                            'user_password': connexion.request.args['user_password'],
+                                                            'playlist_name': connexion.request.args['playlist_name']})
+    return r.json()
+
+
+
 
 def add_friend():
     r = requests.put(url=target + '/users/add_friend', json=connexion.request.json)
