@@ -59,6 +59,64 @@ paths:
         required: true
         schema:
           type: string
+  "/songs/get_song":
+    get:
+      tags:
+      - "/songs"
+      summary: Gets song
+      operationId: rest_api_routes.get_song
+      responses:
+        200:
+          description: greeting response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "action completed!"
+      parameters:
+      - name: song_title
+        in: query
+        description: the lion King
+        required: true
+        schema:
+          type: string
+
+  "/users/get_playlist":
+    get:
+      tags:
+      - "/users"
+      summary: Gets playlist
+      operationId: rest_api_routes.get_playlist
+      responses:
+        200:
+          description: greeting response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "action completed!"
+      parameters:
+      - name: user_name
+        in: query
+        description: King George
+        required: true
+        schema:
+          type: string
+        
+      - name: user_password
+        in: query
+        description: cool_password
+        required: true
+        schema:
+          type: string
+
+      - name: playlist_name
+        in: query
+        description: cool songs
+        required: true
+        schema:
+          type: string
+
   "/users/add_friend":
     put:
       tags:
