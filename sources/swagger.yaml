@@ -181,7 +181,7 @@ paths:
     post:
       tags:
       - "/songs"
-      summary: Adds new song to playlist
+      summary: Adds new song to system
       operationId: rest_api_routes.add_song
       responses:
         200:
@@ -192,7 +192,7 @@ paths:
                 type: string
                 example: "action completed!"
       requestBody:
-        description: Adds specific song to the user's playlist
+        description: Adds specific song to the system
         content:
           application/json:
             schema:
@@ -272,7 +272,7 @@ paths:
     post:
       tags:
       - "/playlists"
-      summary: Decrease songs rating
+      summary: Add song to playlist
       operationId: rest_api_routes.playlist_add_song
       responses:
         200:
@@ -283,7 +283,7 @@ paths:
                 type: string
                 example: "action completed!"
       requestBody:
-        description: Rate specific song by downvoting
+        description: Add specific song to specific user playlist
         content:
           application/json:
             schema:
