@@ -132,10 +132,10 @@
         "tags": [
           "/songs"
         ],
-        "summary": "Adds new song to playlist",
+        "summary": "Adds new song to the system",
         "operationId": "add_song",
         "requestBody": {
-          "description": "Adds specific song to the user's playlist",
+          "description": "Adds specific song to the system",
           "content": {
             "application/json": {
               "schema": {
@@ -223,10 +223,10 @@
         "tags": [
           "/playlists"
         ],
-        "summary": "Decrease songs rating",
+        "summary": "Add song to playlist",
         "operationId": "playlist_add_song",
         "requestBody": {
-          "description": "Rate specific song by downvoting",
+          "description": "Add specific song to user playlist",
           "content": {
             "application/json": {
               "schema": {
