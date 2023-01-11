@@ -15,3 +15,7 @@ def test_all_fields_db():
 @pytest.mark.all_fields_server
 def test_all_fields_server():
     assert test_logic.user_fields_server() == []
+
+
+def test_add_friend():
+    assert test_logic.add_friend() == True

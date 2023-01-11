@@ -39,3 +39,13 @@ def user_fields_server():
             if not (verify_methods.fields_exist(rest_api_routes.get_user(i).get('data'), j)):
                 lis.append(i + j)
     return lis
+
+def add_friend():
+    ret_val = rest_api_routes.add_friend(names_in_data[0], '1234', names_in_data[1])
+    ok_messeges = [{'data': names_in_data[1], 'message': 'OK'}, {'error': names_in_data[1] + ' already a friend of Amit'}]
+    if ret_val in ok_messeges:
+        return True # has friend or can add friend
+    else:
+        return False
+
+

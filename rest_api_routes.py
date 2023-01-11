@@ -16,14 +16,14 @@ target = 'http://' + host + ':' + port
 def add_user(user_in):
     #r = requests.post(url=target + '/users/add_user', json=connexion.request.json)
     r = requests.post(url=target + '/users/add_user', json=user_in)
-    print(r)
+    # print(r)
     return r.json()
 
 
 def get_user(user_param):
     #r = requests.get(url=target + '/users/get_user', params={'user_name': connexion.request.args['user_name']})
     r = requests.get(url=target + '/users/get_user', params={'user_name': user_param})
-    print(r.request.url)
+    # print(r.request.url)
     return r.json()
 
 def get_song():
@@ -39,8 +39,13 @@ def get_playlist():
 
 
 
-def add_friend(user, friend_to_add):
-    r = requests.put(url=target + '/users/add_friend', json=connexion.request.json)
+def add_friend(user, password, friend_to_add):
+    bod = {
+        "friend_name": friend_to_add,
+        "user_name": user,
+        "user_password": password
+    }
+    r = requests.put(url=target + '/users/add_friend', json=bod)
     return r.json()
 
 
