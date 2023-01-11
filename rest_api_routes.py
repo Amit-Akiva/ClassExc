@@ -1,23 +1,29 @@
 import configparser
 import connexion
 import requests
+from definitions import ROOT_DIR
+import os
 
 config = configparser.ConfigParser()
-config.read('./sources/config.ini')
+# os.path.join(ROOT_DIR, 'sources\\config.ini')
+# config.read('/sources/config.ini')
+config.read(os.path.join(ROOT_DIR, 'sources\\config.ini')) # changed to relative path to run from test folder
 host = config['target']['host']
 port = config['target']['port']
 target = 'http://' + host + ':' + port
 
 
-def add_user():
-    r = requests.post(url=target + '/users/add_user', json=connexion.request.json)
+def add_user(user_in):
+    #r = requests.post(url=target + '/users/add_user', json=connexion.request.json)
+    r = requests.post(url=target + '/users/add_user', json=user_in)
     print(r)
     return r.json()
 
 
-def get_user():
-    r = requests.get(url=target + '/users/get_user', params={'user_name': connexion.request.args['user_name']})
-    print(connexion.request.args['user_name'])
+def get_user(user_param):
+    #r = requests.get(url=target + '/users/get_user', params={'user_name': connexion.request.args['user_name']})
+    r = requests.get(url=target + '/users/get_user', params={'user_name': user_param})
+    print(r.request.url)
     return r.json()
 
 def get_song():
@@ -33,7 +39,7 @@ def get_playlist():
 
 
 
-def add_friend():
+def add_friend(user, friend_to_add):
     r = requests.put(url=target + '/users/add_friend', json=connexion.request.json)
     return r.json()
 
